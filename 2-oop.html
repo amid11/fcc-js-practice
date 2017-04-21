@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OOP Part 2</title>
+</head>
+
+<body>
+    <script>
+        function factOfNum(n) {
+            var j = 1;
+            for (var i = n; i > 0; i--) {
+                j = j * i;
+            }
+            return j;
+
+        }
+
+        function palindrome(str) {
+            // Good luck!
+            str = str.replace(/[\W_]/g, '').toLowerCase();
+            var strSplit = str.split("");
+            var strReversed = strSplit.reverse();
+            var finalRev = strReversed.join("");
+            if (str === finalRev) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function findLongestWord(str) {
+            var arr = str.split(" ");
+            var maxLength = 0;
+            var b = 0;
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].length > maxLength) {
+                    maxLength = arr[i].length;
+                    b = i;
+                }
+            }
+            return arr[b] + ", lenght= " + maxLength + " and " + (b + 1) + " in list.";
+            /*return should be out of for loop. */
+
+        }
+
+        function titleCase(str) {
+            var b = 0;
+            var arr = str.toLowerCase().split(" ");
+            for (var m = 0; m < arr.length; m++) {
+                arr[m] = arr[m].charAt(0).toUpperCase() + arr[m].substring(1);
+
+                b = m;
+            }
+            var text = arr.join(" ");
+            return text;
+
+        }
+
+        function largestOfFour(arr) {
+            // You can do this!
+            var results = [];
+
+            for (var i = 0; i < arr.length; i++) {
+                var largestNumber = 0;
+
+                for (var j = 0; j < arr[i].length; j++) {
+                    if (arr[i][j] > largestNumber) {
+                        largestNumber = arr[i][j];
+                    }
+
+
+                }
+                results[i] = largestNumber;
+            }
+            return results;
+        }
+
+        function confirmEnding(str, target) {
+            // "Never give up and good luck will find you."
+            // -- Falcor
+            if (/\s/.test(str)) {
+                var strSplit = str.split(" ");
+                var lastArr = strSplit[strSplit.length - 1];
+                var endArrChar = lastArr.substr(-target.length);
+                if (endArrChar === target) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                var endChar = str.substring(str.length - 1);
+                if (endChar === target) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+        }
+
+
+        function repeatStringNumTimes(str, num) {
+            // repeat after me
+            var emPty = "";
+            if (num > 0) {
+                for (var i = num; i > 0; i--) {
+                    emPty += str;
+                }
+
+            }
+
+
+            return emPty;
+
+        }
+
+        function truncateString(str, num) {
+            // Clear out that junk in your trunk
+            var newStr = str;
+            var strLength = str.length;
+            if (num <= 3) {
+                newStr = str.slice(0, num) + "...";
+            } else if (strLength > num) {
+                newStr = str.slice(0, num - 3) + "...";
+            }
+            return newStr;
+        }
+
+        function chunkArrayInGroups(arr, size) {
+            // Break it up.
+            var mArr = [];
+            for (var i = 0; i < arr.length; i += size) {
+                mArr.push(arr.slice(i, i + size));
+            }
+            return mArr;
+        }
+
+        function slasher(arr, howMany) {
+            var newArr = [];
+            // it doesn't always pay to be first
+            newArr = arr.slice(howMany, arr.length);
+            return newArr;
+
+        }
+
+        function mutation(arr) {
+            var motherArr = arr[0].toLowerCase();
+            var protoArr = arr[1].toLowerCase();
+            for (var i = 0; i < protoArr.length; i++) {
+                if (motherArr.indexOf(protoArr[i]) === -1) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function bouncer(arr) {
+
+            var finalTest = arr.filter(Boolean);
+            return finalTest;
+        }
+
+        function destroyer(arr) {
+            var newArr = arr.splice(",");
+
+            // Remove all the values
+            return newArr;
+        }
+    </script>
+</body>
+
+</html>
